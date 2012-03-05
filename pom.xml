@@ -8,7 +8,7 @@
     <name>Transaction Test Project</name>
     <properties>
         <scala.version>2.9.1</scala.version>
-        <lift.version>2.4</lift.version>
+        <lift.version>2.5-SNAPSHOT</lift.version>
         <!-- Common plugin settings -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>${project.build.sourceEncoding}</project.reporting.outputEncoding>
@@ -45,11 +45,6 @@
                     <artifactId>derby</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>net.liftweb</groupId>
-            <artifactId>lift-openid_${scala.version}</artifactId>
-            <version>${lift.version}</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>

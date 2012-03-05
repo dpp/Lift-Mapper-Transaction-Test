@@ -8,6 +8,23 @@ import net.liftweb.http.{PlainTextResponse, OkResponse}
 /**
  */
 
+
+object TestRest2 extends RestHelper with Loggable {
+
+  serve {
+    case Get("test2" :: "transaction" :: Nil, _) =>
+      User.create.name("user").save()
+      interruptExecution()
+      Contact.create.name("contact").save()
+      OkResponse()
+  }
+
+  def interruptExecution() {
+    throw new IllegalStateException()
+  }
+
+}
+
 object TestRest extends RestHelper with Loggable {
 
   serve {

@@ -5,7 +5,7 @@ import util._
 import net.liftweb.common._
 import net.liftweb.http._
 import mapper.{DB, DefaultConnectionIdentifier, StandardDBVendor}
-import com.transacttest.rest.TestRest
+import com.transacttest.rest._
 import com.transacttest.schema.Schema
 
 /**
@@ -32,7 +32,11 @@ class Boot extends Loggable{
       LiftRules.dispatch.append(service)
     })
 
-    S.addAround(DB.buildLoanWrapper())
+    LiftRules.statelessDispatchTable.append(TestRest2)
+
+    // S.addAround(DB.buildLoanWrapper())
+
+    LiftRules.allAround.append(DB.buildLoanWrapper())
 
     Schema.destroy()
     Schema.create()
